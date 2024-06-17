@@ -1,0 +1,53 @@
+/***** startet *****/ 
+*,
+*::before,
+*::after{
+    box-sizing: border-box;
+}
+*{
+    margin: 0;
+    padding: 0;
+}
+/***** End startet *****/
+body{
+    background: #252525;
+}
+
+.wrapper{
+    width: 90%;
+    height: 100px;
+    max-width: 1536px;
+    margin-inline: auto;
+    position: relative;
+    margin-block-start: 5rem;
+    overflow: hidden;
+    mask-image: linear-gradient(
+        to right,
+        rgba(0,0,0,0),
+        rgba(0,0,0,1) 20%,
+        rgba(0,0,0,1) 80%,
+        rgba(0,0,0,0)
+    );
+}
+
+@keyframes scrollLeftAnime {
+ to{
+    left: -200px;
+ }   
+}
+
+.item{
+    position: absolute;
+    flex-shrink: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: xx-large;
+    width: 200px;
+    height: 100px;
+    background-image: linear-gradient(145deg, rgb(243, 101, 101),rgba(243, 101, 101,.5));
+    left: 100%;
+    left: max(calc(200px * var(--quantity)), 100%);
+    animation: scrollLeftAnime 30s linear infinite;
+    animation-delay: calc( (30s / var(--quantity)) * (var(--quantity) - var(--item)) * -1 );
+}
